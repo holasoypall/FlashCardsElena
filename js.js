@@ -131,15 +131,38 @@ function cargarContenidoQuiz() {
 }
 
 // LÓGICA MODO MEMORY (¡MEJORADA!)
-function prepararMemory() {
+// --- MODIFICACIÓN: prepararMemory AHORA ESPERA A LAS IMÁGENES ---
+async function prepararMemory() {
     memoryBoard.innerHTML = '';
     memoryMatches = 0;
     hasFlippedCard = false;
     lockBoard = false;
-    memoryFeedback.textContent = "Encuentra las parejas";
+    memoryFeedback.textContent = "Cargando imágenes..."; // Feedback visual
+    
+    // 1. Ponemos el Spinner de carga
+    const loaderDiv = document.createElement('div');
+    loaderDiv.className = 'loader-container';
+    loaderDiv.innerHTML = '<div class="loader"></div><p>Preparando tablero...</p>';
+    memoryBoard.appendChild(loaderDiv);
 
+    // 2. Elegimos las cartas (Lógica de siempre)
     barajarArray(flashcardsData);
     const seleccion = flashcardsData.slice(0, 10);
+
+    // 3. --- NUEVO: PRECARGAMOS LAS IMÁGENES ---
+    // Sacamos solo las URLs de las imágenes que vamos a usar
+    const urlsImagenes = seleccion.map(item => item.image);
+    
+    try {
+        // El código se "pausa" aquí hasta que todas las fotos se descarguen
+        await precargarImagenes(urlsImagenes);
+    } catch (error) {
+        console.error("Alguna imagen falló al cargar, pero seguimos adelante.");
+    }
+
+    // 4. Una vez cargadas, borramos el spinner y creamos el juego
+    memoryBoard.innerHTML = ''; // Quitamos spinner
+    memoryFeedback.textContent = "Encuentra las parejas";
 
     let cartasJuego = [];
     seleccion.forEach((item, index) => {
@@ -174,6 +197,22 @@ function prepararMemory() {
         cardDiv.addEventListener('click', voltearCartaMemory);
         memoryBoard.appendChild(cardDiv);
     });
+}
+
+// --- NUEVA FUNCIÓN AUXILIAR ---
+function precargarImagenes(urls) {
+    const promesas = urls.map(url => {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.src = url;
+            // Cuando carga bien: resolvemos
+            img.onload = resolve;
+            // Si falla (ej: 404), resolvemos igual para no bloquear el juego
+            img.onerror = resolve; 
+        });
+    });
+    // Devuelve una promesa que se cumple cuando TODAS las imágenes han terminado
+    return Promise.all(promesas);
 }
 
 function voltearCartaMemory() {
