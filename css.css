@@ -1,0 +1,122 @@
+/* ESTILOS GENERALES (CSS) - Versión Responsive Horizontal */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Usamos min-height en vez de height para evitar problemas en móviles */
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    margin: 0;
+    /* Añadimos un poco de padding para que no pegue a los bordes en pantallas pequeñas */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* CONTENEDOR DE LA TARJETA (Define el espacio 3D y el tamaño) */
+.card-container {
+    perspective: 1000px;
+    cursor: pointer;
+    margin-bottom: 30px;
+
+    /* --- CAMBIOS CLAVE PARA RESPONSIVE Y HORIZONTAL --- */
+    width: 90%;          /* 1. Ocupa casi todo el ancho en móviles */
+    max-width: 650px;    /* 2. Pero pon un límite para pantallas grandes */
+    /* Eliminamos el height fijo de 450px */
+    
+    /* 3. Usamos aspect-ratio para forzar el formato rectangular panorámico (16:9) */
+    aspect-ratio: 16 / 9; 
+    height: auto; /* Deja que el navegador calcule la altura */
+    /* -------------------------------------------------- */
+
+    /* Evita la selección azul al hacer clic rápido */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* LA TARJETA EN SÍ */
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1); /* Animación más suave */
+    border-radius: 20px; /* Bordes más redondeados para el formato horizontal */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Sombra más moderna y suave */
+}
+
+/* CLASE PARA GIRAR LA TARJETA */
+.card.is-flipped {
+    transform: rotateY(180deg);
+}
+
+/* CARAS DE LA TARJETA (Frente y Dorso) */
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
+
+/* ESTILOS DEL FRENTE (Imagen) */
+.card-front {
+    background-color: #222; /* Fondo oscuro mientras carga la imagen */
+}
+
+.card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* La imagen cubre todo el rectángulo sin deformarse */
+}
+
+/* ESTILOS DEL DORSO (Texto) */
+.card-back {
+    transform: rotateY(180deg);
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+    padding: 30px; /* Un poco más de espacio interno */
+    box-sizing: border-box;
+    /* Aseguramos que el texto esté centrado vertical y horizontalmente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-back h2 {
+    margin: 0 0 15px 0;
+    color: #2c3e50;
+    font-size: 1.8rem; /* Título un poco más grande */
+}
+
+.card-back p {
+    font-size: 1.3rem;
+    color: #7f8c8d;
+    margin: 0;
+}
+
+/* BOTÓN SIGUIENTE */
+.btn-next {
+    padding: 14px 30px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px
+}

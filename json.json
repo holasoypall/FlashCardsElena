@@ -1,0 +1,502 @@
+[
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Villa_Savoye_(8237925975).jpg",
+    "title": "Villa Saboya",
+    "author": "Le Corbusier y Pierre Jeanneret"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Chapelle_Notre-Dame_du_Haut_de_Ronchamp_60000_01.jpg",
+    "title": "Capilla Notre-Dame-du-Haut",
+    "author": "Le Corbusier"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Barcelona_Pavilion_Mies_van_der_Rohe.jpg",
+    "title": "Pabellón de Alemania",
+    "author": "Mies van der Rohe"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Centre_Georges-Pompidou_-_panoramio_(15).jpg",
+    "title": "Centre Georges Pompidou",
+    "author": "Renzo Piano y Richard Rogers"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/FLW_SC_Johnson_Admin_Bldg_5540.jpg",
+    "title": "Sede Johnson & Son",
+    "author": "Frank Lloyd Wright"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/FarnsworthHouse-Mies-6.jpg",
+    "title": "Casa Farnsworth",
+    "author": "Mies van der Rohe"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Salk_Institute1.jpg",
+    "title": "Salk Institute",
+    "author": "Louis I. Kahn"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Maison_de_verre_Chareau.jpg",
+    "title": "Maison de Verre",
+    "author": "Pierre Chareau y Bernard Bijvoet"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Couvent_Sainte-Marie_de_La_Tourette_Detail_1.jpg",
+    "title": "Convento de Saint-Marie de la Tourette",
+    "author": "Le Corbusier"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/TWA_Flight_Center_JFK.jpg",
+    "title": "Terminal de la TWA",
+    "author": "Eero Saarinen"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Berliner_Philharmonie_Hans_Scharoun.jpg",
+    "title": "Filarmónica",
+    "author": "Hans Scharoun"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Guggenheim_museum_Bilbao.jpg",
+    "title": "Museo Guggenheim",
+    "author": "Frank O. Gehry"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Fallingwater_-_by_Frank_Lloyd_Wright.jpg",
+    "title": "Casa Kaufmann (casa de la cascada)",
+    "author": "Frank Lloyd Wright"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Woodland_Cemetry-_Skogskyrkog%C3%A5rden.jpg",
+    "title": "Cementerio del bosque",
+    "author": "E. G. Asplund y S. Lewerentz"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Seagram_Building-NewYork-1.jpg",
+    "title": "Edificio Seagram",
+    "author": "Mies van der Rohe y Philip Johnson"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Solomon_R._Guggenheim_Museum_New_York_City.jpg",
+    "title": "Guggenheim Museum",
+    "author": "Frank Lloyd Wright"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Eames_House_Interior.jpg",
+    "title": "Casa Eames",
+    "author": "Charles y Ray Eames"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Leicester_Engineering_Building.jpg",
+    "title": "Edificio de ingeniería",
+    "author": "James Stirling y James Gowan"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Casadelfascio01.JPG",
+    "title": "Casa del Fascio",
+    "author": "Giuseppe Terragni"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Unite_d_Habitation_Marseille.jpg",
+    "title": "Unité d'Habitation",
+    "author": "Le Corbusier"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Habitat_67_Montreal.JPG",
+    "title": "Habitat 67",
+    "author": "Moshe Safdie"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Kimbell_Art_Museum_Kahn.jpg",
+    "title": "Kimbell Art Museum",
+    "author": "Louis I. Kahn"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Rietveld_Schr%C3%B6derhuis.jpg",
+    "title": "Casa Rietveld-Schröder",
+    "author": "James Stirling y James Gowan"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Nakagin.jpg",
+    "title": "Torre cápsula Nakagin",
+    "author": "Kisho Kurokawa"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Postsparkasse_Otto_Wagner_Beamtenstiege_2.JPG",
+    "title": "Caja postal de ahorros",
+    "author": "Otto Wagner"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Casa_Malaparte_Capri.jpg",
+    "title": "Casa Malaparte",
+    "author": "Curzio Malaparte"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Sydney_Opera_House_Sails.jpg",
+    "title": "Ópera de Sídney",
+    "author": "Jorn Utzon"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Yale_Art_and_Architecture_Building.jpg",
+    "title": "Escuela de Arte y Arquitectura",
+    "author": "Paul Rudolph"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Phillips_Exeter_-_library_3.JPG",
+    "title": "Biblioteca de la Philips Exeter Academy",
+    "author": "Louis I. Kahn"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/AEG_by_Peter_Behrens.jpg",
+    "title": "Fábrica de turbinas AEG",
+    "author": "Peter Behrens"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Robie_House_designed_by_Frank_Lloyd_Wright_1909.jpg",
+    "title": "Casa Robie",
+    "author": "Frank Lloyd Wright"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Schindler_House_West_Hollywood.jpg",
+    "title": "Casa Schindler",
+    "author": "Rudolf M. Schindler"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Brazilian_National_Congress.jpg",
+    "title": "Edificio del Congreso Nacional",
+    "author": "Oscar Niemeyer"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Bauhaus_Dessau_2005.jpg",
+    "title": "Edificio de la Bauhaus",
+    "author": "Walter Gropius y Adolf Meyer"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/HSBC_Building_Hong_Kong.jpg",
+    "title": "Banco de Hong Kong y Shanghái",
+    "author": "Norman Foster"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Mackintosh_School_of_Art_Glasgow.JPG",
+    "title": "Escuela de Arte",
+    "author": "Charles R. Mackintosh"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Villa_Mairea_Noormarkku.jpg",
+    "title": "Villa Mairea",
+    "author": "Alvar Aalto"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Palace_of_the_Assembly_-_Chandigarh_-_Le_Corbusier.jpg",
+    "title": "Palacio de la Asamblea",
+    "author": "Le Corbusier"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Stockholm_Public_Library_2012.jpg",
+    "title": "Biblioteca pública",
+    "author": "Erik Gunnar Asplund"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Yoyogi_Gymnasium.jpg",
+    "title": "Gimnasio nacional (Yoyogi)",
+    "author": "Kenzo Tange"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/SendaiMediatheque.jpg",
+    "title": "Mediateca de Sendai",
+    "author": "Toyo Ito"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Einsteintower_back.jpg",
+    "title": "Torre Einstein",
+    "author": "Erich Mendelsohn"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Lever_House_390_Park_Avenue.jpg",
+    "title": "Lever house",
+    "author": "Gordon Bunshaft y Natalie de Blois (SOM)"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/DiamondRanchHS_-_CarolHighsmith_-_4.jpg",
+    "title": "Escuela Diamond Ranch",
+    "author": "Morphosis Architects"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Art-gallery-philip-johnson-glasshouse.jpg",
+    "title": "Glass House",
+    "author": "Philip Johnson"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Ford_foundation_building_1.JPG",
+    "title": "Sede de la Ford Foundation",
+    "author": "Kevin Roche y John Dinkeloo"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Olympiastadion_Munich.jpg",
+    "title": "Estadio Olímpico",
+    "author": "Frei Otto y Günter Behnisch"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Gehry_House_-_Image01.jpg",
+    "title": "Casa Gehry",
+    "author": "Frank O. Gehry"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Igualada_1.JPG",
+    "title": "Cementerio de Igualada",
+    "author": "Enric Miralles y Carme Pinós"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/S.R._Crown_Hall_South_Elevation.jpg",
+    "title": "Crown Hall",
+    "author": "Mies van der Rohe"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/V_Venturi_H_1.JPG",
+    "title": "Casa Vanna Venturi",
+    "author": "Robert Venturi"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Lovell_Health_House.jpg",
+    "title": "Casa Lovell",
+    "author": "Richard Neutra"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Villa_Tugendhat_Brno.jpg",
+    "title": "Casa Tugendhat",
+    "author": "Mies van der Rohe"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Baker_House,_MIT_-_IMG_5563.JPG",
+    "title": "Residencia Baker",
+    "author": "Alvar Aalto"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Casa_Barragan-Torre_del_agua_-_panoramio.jpg",
+    "title": "Casa Barragán",
+    "author": "Luis Barragán"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Yale_University%27s_Beinecke_Rare_Book_and_Manuscript_Library.jpg",
+    "title": "Biblioteca Beinecke",
+    "author": "Gordon Bunshaft (SOM)"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Masp.jpg",
+    "title": "Museu de Arte",
+    "author": "Lina Bo Bardi"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Tomba_brion_(2022)_24.jpg",
+    "title": "Tumba Brion",
+    "author": "Carlo Scarpa"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Jatiya_Sangsad_Bhaban_in_2014.jpg",
+    "title": "Asamblea Nacional",
+    "author": "Louis I. Kahn"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Neue_Staatsgalerie_Stuttgart.jpg",
+    "title": "Neue Staatsgalerie",
+    "author": "James Stirling"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Museo_Nacional_de_Arte_Romano_Interior.jpg",
+    "title": "Museo Nacional de Arte Romano",
+    "author": "Rafael Moneo"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Maison_%C3%A0_Bordeaux.jpg",
+    "title": "Casa en Burdeos",
+    "author": "Rem Koolhaas (OMA)"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Casa_Mila_(Barcelona)_-_01.jpg",
+    "title": "Casa Milà",
+    "author": "Antonio Gaudi"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Saynatsalo_Town_Hall.jpg",
+    "title": "Ayuntamiento de Säynätsalo",
+    "author": "Alvar Aalto"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/London_-_Lloyd%27s_Building_1986_-_Architect_-_Richard_Rogers.jpg",
+    "title": "Lloyd's Building",
+    "author": "Richard Rogers"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Institut_du_Monde_Arabe_Paris.jpg",
+    "title": "Instituto del Mundo Árabe",
+    "author": "Jean Nouvel"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Parc_de_la_Villette_Folie.jpg",
+    "title": "Parc de la Villete",
+    "author": "Bernard Tschumi"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Judisches_Museum_Berlin.jpg",
+    "title": "Museo Judio",
+    "author": "Daniel Libeskind"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Hillside_Terrace_G.jpg",
+    "title": "Complejo Hillside Terrace I-IV",
+    "author": "Fumihiko Maki"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Smith_House_Darien.jpg",
+    "title": "Casa Smith",
+    "author": "Richard Meier"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Neue_Nationalgalerie_Berlin.jpg",
+    "title": "Neue Nationalgalerie",
+    "author": "Mies van der Rohe"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Carlo_scarpa,_architect-_the_cangrande_space,_castelvecchio_museum,_verona_1956-1973_(31252404523).jpg",
+    "title": "Museo de Castelvecchio",
+    "author": "Carlo Scarpa"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Swimming_Pool_Piscinas_de_Mar%C3%A9s_Le%C3%A7a_da_Palmeira_by_%C3%81lvaro_Siza_foto_Christian_G%C3%A4nshirt.jpg",
+    "title": "Piscina en Leça da Palmeira",
+    "author": "Alvaro Siza"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Looshaus_Wien.jpg",
+    "title": "Edificio en Michaelerplatz",
+    "author": "Adolf Loos"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Rusakovs_club_melnikov.JPG",
+    "title": "Club Obrero Rusakov",
+    "author": "Konstantin Mélnikov"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Mill_Owners%27_Association_Building_Ahmedabad.jpg",
+    "title": "Edificio de la Asociación de Hilanderos",
+    "author": "Le Corbusier"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Stahl_House.jpg",
+    "title": "Casa Stahl",
+    "author": "Pierre Koenig"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Whitney_Museum_of_American_Art,_New_York.jpg",
+    "title": "Whitney Museum",
+    "author": "Marcel Breuer y Hamilton Smith"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Falkestrasse_rooftop_remodeling.jpg",
+    "title": "Ático en Falkestrasse",
+    "author": "Coop Himmelb(l)au"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Larkin_Administration_Building_Buffalo_1906.jpg",
+    "title": "Edificio compañía Larkin",
+    "author": "Frank Lloyd Wright"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/FiatLingotto30.jpg",
+    "title": "Fábrica Lingotto",
+    "author": "Giacomo Mattè-Trucco"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Villa_Muller_054.jpg",
+    "title": "Villa Müller",
+    "author": "Adolf Loos"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Van_Nelle_Factory_Rotterdam.jpg",
+    "title": "Fábrica Van Nelle",
+    "author": "J. Brinkman, L. Van der Vlogt y M. Stam"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Dymaxion_structure.jpg",
+    "title": "Casa Dymaxion",
+    "author": "Richard Buckminster Fuller"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Carlo_Scarpa_%C3%A0_la_Fondation_Querini_Stampalia_(Venise)_(15193672818).jpg",
+    "title": "Fondazione Querini Stampalia",
+    "author": "C. Scarpa y C. Maschietto"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/House_VI_Peter_Eisenman.jpg",
+    "title": "Casa VI",
+    "author": "Peter Eisenman"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Beurs_van_Berlage_in_Amsterdam_2019.png",
+    "title": "Bolsa de Ámsterdam",
+    "author": "Hendrik Petrus Berlage"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/GambleHouse-2005_edit1.jpg",
+    "title": "Casa Gamble",
+    "author": "Greene & Greene"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Lovell_Beach_House.jpg",
+    "title": "Casa de la playa Lovell",
+    "author": "Rudolf M. Schindler"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Torino,_Palazzo_Esposizioni,_veduta_aerea.jpg",
+    "title": "Palacio de exposiciones",
+    "author": "Pier Luigi Nervi"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Orphanage-1a.Aldo_van_Eyck.jpg",
+    "title": "Orfanato municipal",
+    "author": "Aldo van Eyck"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Carpenter_Center_for_the_Visual_Arts_with_foliage.jpg",
+    "title": "Carpenter Center",
+    "author": "Le Corbusier"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/FU_Berlin,_Rostlaube,_Innenhof_1964.jpg",
+    "title": "Universidad Libre de Berlin",
+    "author": "Candilis-Josic-Woods y M. Schiedhelm"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Bagsv%C3%A6rd_Kirke_Interior.jpg",
+    "title": "Iglesia de Bagsvaerd",
+    "author": "Jorn Utzon"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Sesc_Pompeia,_Lina_Bo_Bardi_(5877888447).jpg",
+    "title": "Centro cultural SESC Pompeia",
+    "author": "Lina Bo Bardi"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/7293_-_Z%C3%BCrich_-_Le_Corbusier_-_Heidi_Weber_Museum.JPG",
+    "title": "Heidi Weber",
+    "author": "Le Corbusier"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Monte-Amiata-Housing-Gallaratese-II-Milan-07-2014c.jpg",
+    "title": "Gallaratese II",
+    "author": "Aldo Rossi y Carlo Aymonino"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Hertzberger_Centraal_Beheer1.jpg",
+    "title": "Centraal Beheer",
+    "author": "Herman Hertzberger"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Fire_Station,_Vitra_Campus,_Weil_am_Rhein_-_Flickr_-_Mondo79.jpg",
+    "title": "Parque de bomberos Vitra",
+    "author": "Zaha Hadid"
+  },
+  {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Osanbashi_Passenger_Terminal_-_Satoru_Mishima.jpg",
+    "title": "Terminal de pasajeros",
+    "author": "FOA"
+  }
+]
