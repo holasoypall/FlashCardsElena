@@ -243,7 +243,21 @@ function resetearTablero() {
 }
 
 function reiniciarMemory() {
-    prepararMemory();
+    // 1. Añadimos la clase que activa la animación CSS
+    memoryBoard.classList.add('resetting');
+
+    // 2. Esperamos 300ms (justo cuando la opacidad llega a 0)
+    setTimeout(() => {
+        // Aquí es donde borramos y creamos las cartas nuevas
+        // El usuario no ve el cambio brusco porque el tablero es invisible ahora mismo
+        prepararMemory();
+    }, 300);
+
+    // 3. Esperamos a que termine la animación (600ms) para quitar la clase
+    // Así podremos volver a usarla la próxima vez que pulsen el botón
+    setTimeout(() => {
+        memoryBoard.classList.remove('resetting');
+    }, 600);
 }
 
 // COMUNES

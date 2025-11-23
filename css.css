@@ -333,3 +333,22 @@ body {
     20%, 60% { transform: translateX(-5px); }
     40%, 80% { transform: translateX(5px); }
 }
+/* ANIMACIÓN DE REINICIO DEL TABLERO */
+.resetting {
+    animation: resetBoardEffect 0.6s ease-in-out;
+}
+
+@keyframes resetBoardEffect {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0;
+        transform: scale(0.95); /* Se hace un poco más pequeño al desaparecer */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
