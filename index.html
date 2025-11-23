@@ -8,21 +8,38 @@
 </head>
 <body>
 
-    <div class="card-container" onclick="voltearTarjeta()">
-        <div class="card" id="flashcard">
-            <div class="card-face card-front">
-                <img id="card-image" src="" alt="Obra de arte">
-            </div>
-            <div class="card-face card-back">
-                <h2 id="card-title">Título</h2>
-                <p id="card-author">Autor</p>
+    <nav class="mode-selector">
+        <button id="btn-mode-study" class="mode-btn active" onclick="cambiarModo('study')">📚 Estudio</button>
+        <button id="btn-mode-quiz" class="mode-btn" onclick="cambiarModo('quiz')">🎮 Quiz</button>
+        </nav>
+
+    <div id="study-container" class="game-area">
+        <div class="card-container" onclick="voltearTarjeta()">
+            <div class="card" id="flashcard">
+                <div class="card-face card-front">
+                    <img id="study-img" src="" alt="Obra de arte">
+                </div>
+                <div class="card-face card-back">
+                    <h2 id="study-title">Título</h2>
+                    <p id="study-author">Autor</p>
+                </div>
             </div>
         </div>
+        <p class="hint">Haz clic en la imagen para ver la respuesta</p>
     </div>
 
-    <button class="btn-next" onclick="siguienteTarjeta()">Siguiente Obra</button>
-    <p class="hint">Haz clic en la imagen para ver la respuesta</p>
+    <div id="quiz-container" class="game-area hidden">
+        <div class="quiz-image-box">
+            <img id="quiz-img" src="" alt="Adivina la obra">
+        </div>
+        <div id="quiz-options" class="options-grid">
+            </div>
+        <p id="quiz-feedback" class="hint"></p>
+    </div>
 
-    <script src="js.js"></script>
-</body>
+    <div class="controls">
+        <button class="btn-next" onclick="siguienteTarjeta()">Siguiente Obra ➡</button>
+    </div>
+
+    <script src="js.js"></script> </body>
 </html>

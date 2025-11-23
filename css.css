@@ -1,122 +1,202 @@
-/* ESTILOS GENERALES (CSS) - Versión Responsive Horizontal */
+/* ESTILOS GENERALES */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* --- LA MAGIA DEL CENTRADO --- */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* Usamos min-height en vez de height para evitar problemas en móviles */
-    min-height: 100vh;
+    align-items: center;      /* Centra horizontalmente */
+    justify-content: center;  /* Centra VERTICALMENTE */
+    min-height: 100vh;        /* Asegura que el cuerpo ocupe toda la pantalla */
+    /* ----------------------------- */
+    
     background-color: #f0f2f5;
     margin: 0;
-    /* Añadimos un poco de padding para que no pegue a los bordes en pantallas pequeñas */
-    padding: 20px;
+    padding: 20px; /* Un poco de aire para que no toque los bordes en móvil */
     box-sizing: border-box;
 }
 
-/* CONTENEDOR DE LA TARJETA (Define el espacio 3D y el tamaño) */
+/* --- MENÚ SUPERIOR --- */
+.mode-selector {
+    background: white;
+    padding: 6px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    margin-bottom: 25px; /* Espacio entre el menú y la tarjeta */
+    display: flex;
+    gap: 8px;
+    
+    /* Para que no se estire demasiado */
+    flex-shrink: 0; 
+}
+
+.mode-btn {
+    border: none;
+    background: transparent;
+    padding: 10px 24px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #95a5a6;
+    transition: all 0.3s;
+    outline: none; /* Quita borde azul al clicar */
+}
+
+.mode-btn.active {
+    background-color: #3498db;
+    color: white;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+/* UTILIDAD PARA OCULTAR MODOS */
+.hidden {
+    display: none !important;
+}
+
+.game-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Esto asegura que el área de juego no empuje todo hacia arriba innecesariamente */
+    justify-content: center; 
+}
+
+/* --- MODO ESTUDIO --- */
 .card-container {
     perspective: 1000px;
     cursor: pointer;
-    margin-bottom: 30px;
-
-    /* --- CAMBIOS CLAVE PARA RESPONSIVE Y HORIZONTAL --- */
-    width: 90%;          /* 1. Ocupa casi todo el ancho en móviles */
-    max-width: 650px;    /* 2. Pero pon un límite para pantallas grandes */
-    /* Eliminamos el height fijo de 450px */
-    
-    /* 3. Usamos aspect-ratio para forzar el formato rectangular panorámico (16:9) */
+    width: 100%;
+    max-width: 600px;
+    /* Mantiene formato rectangular panorámico */
     aspect-ratio: 16 / 9; 
-    height: auto; /* Deja que el navegador calcule la altura */
-    /* -------------------------------------------------- */
-
-    /* Evita la selección azul al hacer clic rápido */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-}
-
-/* LA TARJETA EN SÍ */
-.card {
-    width: 100%;
-    height: 100%;
     position: relative;
+    
+    -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent;
+}
+
+.card {
+    width: 100%; height: 100%; position: relative;
     transform-style: preserve-3d;
-    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1); /* Animación más suave */
-    border-radius: 20px; /* Bordes más redondeados para el formato horizontal */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Sombra más moderna y suave */
-}
-
-/* CLASE PARA GIRAR LA TARJETA */
-.card.is-flipped {
-    transform: rotateY(180deg);
-}
-
-/* CARAS DE LA TARJETA (Frente y Dorso) */
-.card-face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
     border-radius: 20px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15); /* Sombra más elegante */
+}
+
+.card.is-flipped { transform: rotateY(180deg); }
+
+.card-face {
+    position: absolute; width: 100%; height: 100%;
+    -webkit-backface-visibility: hidden; backface-visibility: hidden;
+    border-radius: 20px; overflow: hidden;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
     background: white;
 }
 
-/* ESTILOS DEL FRENTE (Imagen) */
-.card-front {
-    background-color: #222; /* Fondo oscuro mientras carga la imagen */
-}
+.card-front { background-color: #222; }
+.card-front img { width: 100%; height: 100%; object-fit: cover; }
 
-.card-front img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* La imagen cubre todo el rectángulo sin deformarse */
-}
-
-/* ESTILOS DEL DORSO (Texto) */
 .card-back {
     transform: rotateY(180deg);
-    background-color: #fff;
-    color: #333;
-    text-align: center;
-    padding: 30px; /* Un poco más de espacio interno */
-    box-sizing: border-box;
-    /* Aseguramos que el texto esté centrado vertical y horizontalmente */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding: 20px; text-align: center;
+}
+.card-back h2 { margin: 0 0 10px 0; color: #2c3e50; font-size: 1.6rem; }
+.card-back p { font-size: 1.2rem; color: #7f8c8d; }
+
+/* --- MODO QUIZ --- */
+.quiz-image-box {
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    margin-bottom: 25px;
+    background: #222;
 }
 
-.card-back h2 {
-    margin: 0 0 15px 0;
-    color: #2c3e50;
-    font-size: 1.8rem; /* Título un poco más grande */
+.quiz-image-box img {
+    width: 100%; height: 100%; object-fit: cover;
 }
 
-.card-back p {
-    font-size: 1.3rem;
-    color: #7f8c8d;
-    margin: 0;
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+    max-width: 600px;
 }
 
-/* BOTÓN SIGUIENTE */
-.btn-next {
-    padding: 14px 30px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    font-size: 1.1rem;
+.option-btn {
+    background: white;
+    border: 2px solid #ecf0f1;
+    padding: 15px 10px;
+    border-radius: 12px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px
+    font-size: 0.95rem;
+    color: #34495e;
+    transition: all 0.2s;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    
+    /* Evita que el texto se seleccione */
+    -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent;
+}
+
+.option-btn:hover { 
+    background-color: #f7f9fa; 
+    border-color: #bdc3c7; 
+    transform: translateY(-2px);
+}
+
+.option-btn:active { transform: translateY(0); }
+
+/* Feedback visual (Verde/Rojo) */
+.option-btn.correct {
+    background-color: #2ecc71 !important;
+    color: white !important;
+    border-color: #27ae60 !important;
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+}
+
+.option-btn.wrong {
+    background-color: #e74c3c !important;
+    color: white !important;
+    border-color: #c0392b !important;
+    opacity: 0.7;
+}
+
+/* CONTROLES ABAJO */
+.controls { 
+    margin-top: 30px; 
+    flex-shrink: 0;
+}
+
+.btn-next {
+    padding: 14px 35px; background-color: #3498db; color: white;
+    border: none; border-radius: 50px; font-size: 1.1rem; cursor: pointer;
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+    transition: transform 0.2s, background 0.3s;
+    font-weight: bold;
+    
+    -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent;
+}
+.btn-next:hover { 
+    background-color: #2980b9; 
+    transform: scale(1.05);
+}
+.btn-next:active { transform: scale(0.95); }
+
+.hint { color: #bdc3c7; font-size: 0.9rem; margin-top: 15px; }
+
+/* AJUSTES PARA MÓVILES PEQUEÑOS */
+@media (max-height: 700px) {
+    body {
+        /* Si la pantalla es muy bajita, reducimos espacios para que quepa todo */
+        justify-content: flex-start; 
+        padding-top: 20px;
+        overflow-y: auto; /* Permitir scroll si no cabe */
+    }
 }
