@@ -11,10 +11,11 @@
     <nav class="mode-selector">
         <button id="btn-mode-study" class="mode-btn active" onclick="cambiarModo('study')">📚 Estudio</button>
         <button id="btn-mode-quiz" class="mode-btn" onclick="cambiarModo('quiz')">🎮 Quiz</button>
-        </nav>
+        <button id="btn-mode-memory" class="mode-btn" onclick="cambiarModo('memory')">🧠 Memory</button>
+    </nav>
 
     <div id="study-container" class="game-area">
-        <div class="card-container" onclick="voltearTarjeta()">
+        <div class="card-container" onclick="voltearTarjetaEstudio()">
             <div class="card" id="flashcard">
                 <div class="card-face card-front">
                     <img id="study-img" src="" alt="Obra de arte">
@@ -26,6 +27,9 @@
             </div>
         </div>
         <p class="hint">Haz clic en la imagen para ver la respuesta</p>
+        <div class="controls">
+            <button class="btn-next" onclick="siguienteTarjeta()">Siguiente Obra ➡</button>
+        </div>
     </div>
 
     <div id="quiz-container" class="game-area hidden">
@@ -34,12 +38,21 @@
         </div>
         <div id="quiz-options" class="options-grid">
             </div>
-        <p id="quiz-feedback" class="hint"></p>
+        <p id="quiz-feedback" class="hint">Elige la respuesta correcta</p>
+        <div class="controls">
+            <button class="btn-next" onclick="siguienteTarjeta()">Siguiente Obra ➡</button>
+        </div>
     </div>
 
-    <div class="controls">
-        <button class="btn-next" onclick="siguienteTarjeta()">Siguiente Obra ➡</button>
+    <div id="memory-container" class="game-area hidden">
+        <div id="memory-board" class="memory-grid">
+            </div>
+        <p id="memory-feedback" class="hint">Encuentra las parejas (Imagen - Descripción)</p>
+        <div class="controls">
+            <button class="btn-next" onclick="reiniciarMemory()">🔄 Reiniciar Tablero</button>
+        </div>
     </div>
 
-    <script src="js.js"></script> </body>
+    <script src="js.js"></script>
+</body>
 </html>

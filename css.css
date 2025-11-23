@@ -200,3 +200,136 @@ body {
         overflow-y: auto; /* Permitir scroll si no cabe */
     }
 }
+
+.memory-grid {
+    display: grid;
+    /* En escritorio: 5 columnas (para 20 cartas queda 5x4) */
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 10px;
+    width: 100%;
+    max-width: 800px; /* Un poco más ancho para que quepan */
+    margin-bottom: 20px;
+}
+
+/* LA CARTA DEL MEMORY (Pequeña) */
+.mem-card {
+    background-color: transparent;
+    aspect-ratio: 1 / 1; /* Cuadradas */
+    perspective: 1000px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.mem-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.3s;
+    transform-style: preserve-3d;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Cuando la carta tiene la clase .flip, se gira */
+.mem-card.flip .mem-inner {
+    transform: rotateY(180deg);
+}
+
+.mem-front, .mem-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* PARTE VISIBLE INICIAL (Dorso de la baraja) */
+.mem-front {
+    background-color: #34495e; /* Color oscuro */
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* PARTE OCULTA (Contenido) */
+.mem-back {
+    background-color: white;
+    transform: rotateY(180deg);
+    /* Borde base transparente para que no salte el tamaño al añadir color */
+    border: 4px solid transparent; 
+    
+    /* Esta es la clave: Transición suave para el color */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    
+    /* Aseguramos que la imagen llene bien el espacio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.mem-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Evita huecos extraños */
+}
+
+.mem-back .info-text {
+    font-size: 0.7rem; /* Letra pequeña para que quepa */
+    color: #2c3e50;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.2;
+}
+
+.mem-back h3 { margin: 0 0 4px 0; font-size: 0.8rem; }
+.mem-back p { margin: 0; font-size: 0.7rem; }
+
+/* Cuando acertamos la pareja */
+.mem-card.matched .mem-inner .mem-back {
+    background-color: #2ecc71; /* Verde */
+    border-color: #27ae60;
+}
+
+/* RESPONSIVE PARA MÓVILES */
+@media (max-width: 600px) {
+    .memory-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columnas en móvil */
+    }
+    .mem-back h3 { font-size: 0.65rem; }
+}
+/* ... Tus estilos anteriores ... */
+
+/* --- ACIERTO (VERDE) --- */
+.mem-card.matched .mem-inner .mem-back {
+    border-color: #2ecc71; /* Borde Verde */
+    /* Sombra interna verde (Efecto cristal) */
+    box-shadow: inset 0 0 0 4px rgba(46, 204, 113, 0.3); 
+}
+
+/* --- FALLO (ROJO) --- */
+.mem-card.wrong .mem-inner .mem-back {
+    border-color: #e74c3c;
+    box-shadow: inset 0 0 0 4px rgba(231, 76, 60, 0.3);
+}
+
+.mem-card.wrong {
+    animation: shake 0.3s;
+}
+
+/* Animación shake mejorada (más corta y vibrante) */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}

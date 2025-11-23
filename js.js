@@ -1,43 +1,45 @@
 let flashcardsData = [];
 let currentIndex = 0;
-let currentMode = 'study'; // Puede ser 'study' o 'quiz'
-let quizAnswered = false;  // Para bloquear clics tras responder
+let currentMode = 'study'; 
 
-// Elementos del DOM
+// VARIABLES PARA MEMORY
+let hasFlippedCard = false;
+let lockBoard = false; 
+let firstCard, secondCard;
+let memoryMatches = 0;
+
+// Elementos DOM
 const studyContainer = document.getElementById('study-container');
 const quizContainer = document.getElementById('quiz-container');
+const memoryContainer = document.getElementById('memory-container');
+
 const btnStudy = document.getElementById('btn-mode-study');
 const btnQuiz = document.getElementById('btn-mode-quiz');
+const btnMemory = document.getElementById('btn-mode-memory');
 
 const cardElement = document.getElementById('flashcard');
-
-// Elementos Estudio
 const studyImg = document.getElementById('study-img');
 const studyTitle = document.getElementById('study-title');
 const studyAuthor = document.getElementById('study-author');
 
-// Elementos Quiz
 const quizImg = document.getElementById('quiz-img');
 const quizOptionsDiv = document.getElementById('quiz-options');
 const quizFeedback = document.getElementById('quiz-feedback');
+
+const memoryBoard = document.getElementById('memory-board');
+const memoryFeedback = document.getElementById('memory-feedback');
+
 
 // 1. CARGA INICIAL
 async function iniciarApp() {
     try {
         const respuesta = await fetch('json.json');
-        if(!respuesta.ok) throw new Error("No se encontró data.json");
+        if(!respuesta.ok) throw new Error("Error cargando json.json");
         flashcardsData = await respuesta.json();
-        
-        // Necesitamos al menos 4 cartas para el modo quiz
-        if(flashcardsData.length < 4) {
-            alert("Aviso: Necesitas al menos 4 obras en data.json para que el Quiz funcione bien.");
-        }
-
-        barajarArray(flashcardsData);
-        cargarContenido();
+        cambiarModo('study');
     } catch (error) {
         console.error(error);
-        alert("Error cargando: " + error.message);
+        alert("Error: " + error.message);
     }
 }
 
@@ -45,107 +47,207 @@ async function iniciarApp() {
 function cambiarModo(modo) {
     currentMode = modo;
     
-    // Actualizamos botones del menú
-    if (modo === 'study') {
-        btnStudy.classList.add('active');
-        btnQuiz.classList.remove('active');
-        studyContainer.classList.remove('hidden');
-        quizContainer.classList.add('hidden');
-    } else {
-        btnQuiz.classList.add('active');
-        btnStudy.classList.remove('active');
-        quizContainer.classList.remove('hidden');
-        studyContainer.classList.add('hidden');
-    }
+    studyContainer.classList.add('hidden');
+    quizContainer.classList.add('hidden');
+    memoryContainer.classList.add('hidden');
     
-    // Recargamos el contenido para adaptarlo al modo
-    cargarContenido();
+    btnStudy.classList.remove('active');
+    btnQuiz.classList.remove('active');
+    btnMemory.classList.remove('active');
+
+    if (modo === 'study') {
+        studyContainer.classList.remove('hidden');
+        btnStudy.classList.add('active');
+        cargarContenidoEstudio();
+    } else if (modo === 'quiz') {
+        quizContainer.classList.remove('hidden');
+        btnQuiz.classList.add('active');
+        cargarContenidoQuiz();
+    } else if (modo === 'memory') {
+        memoryContainer.classList.remove('hidden');
+        btnMemory.classList.add('active');
+        prepararMemory();
+    }
 }
 
-// 3. RENDERIZADO DE CONTENIDO (Centralizado)
-function cargarContenido() {
+// LÓGICA MODO ESTUDIO
+function cargarContenidoEstudio() {
     if (flashcardsData.length === 0) return;
     const data = flashcardsData[currentIndex];
-
-    if (currentMode === 'study') {
-        // Lógica Estudio
-        studyImg.src = data.image;
-        studyTitle.textContent = data.title;
-        studyAuthor.textContent = data.author;
-        // Asegurarse de que la carta empieza sin girar
-        cardElement.classList.remove('is-flipped');
-    } else {
-        // Lógica Quiz
-        quizAnswered = false;
-        quizImg.src = data.image;
-        quizFeedback.textContent = "Elige la respuesta correcta";
-        generarOpcionesQuiz(data);
-    }
+    studyImg.src = data.image;
+    studyTitle.textContent = data.title;
+    studyAuthor.textContent = data.author;
+    cardElement.classList.remove('is-flipped');
 }
 
-// 4. LÓGICA ESPECÍFICA DEL QUIZ (Generar respuestas falsas)
-function generarOpcionesQuiz(correcta) {
-    quizOptionsDiv.innerHTML = ''; // Limpiar botones anteriores
+function voltearTarjetaEstudio() {
+    cardElement.classList.toggle('is-flipped');
+}
 
-    // a) Crear array con la respuesta correcta
-    let opciones = [correcta];
-
-    // b) Buscar 3 respuestas incorrectas al azar
-    // Filtramos para no coger la correcta repetida
-    let resto = flashcardsData.filter(item => item !== correcta);
-    barajarArray(resto); // Mezclamos las incorrectas
+// LÓGICA MODO QUIZ (¡CORREGIDA!)
+function cargarContenidoQuiz() {
+    if (flashcardsData.length === 0) return;
+    const data = flashcardsData[currentIndex];
+    quizImg.src = data.image;
+    quizFeedback.textContent = "Elige la respuesta correcta";
     
-    // Cogemos las 3 primeras del resto mezclado
+    let opciones = [data];
+    let resto = flashcardsData.filter(item => item !== data);
+    barajarArray(resto);
     opciones = opciones.concat(resto.slice(0, 3));
-
-    // c) Mezclamos las 4 opciones para que la correcta no esté siempre primera
     barajarArray(opciones);
 
-    // d) Dibujar los botones
+    quizOptionsDiv.innerHTML = '';
     opciones.forEach(opcion => {
         const btn = document.createElement('button');
         btn.className = 'option-btn';
         btn.textContent = `${opcion.title} - ${opcion.author}`;
         
-        // Al hacer click...
-        btn.onclick = () => verificarRespuesta(btn, opcion, correcta);
-        
+        // Asignamos un atributo data para identificar cuál es la correcta luego
+        if (opcion === data) btn.dataset.correct = "true";
+
+        btn.onclick = () => {
+            if (opcion === data) {
+                // ACIERTO
+                btn.classList.add('correct');
+                quizFeedback.textContent = "¡Correcto! 🎉";
+            } else {
+                // FALLO
+                btn.classList.add('wrong');
+                quizFeedback.textContent = "¡Ups! Era: " + data.title;
+                
+                // --- AQUÍ ESTÁ EL CAMBIO ---
+                // Buscamos todos los botones y coloreamos el correcto en verde
+                const botones = quizOptionsDiv.querySelectorAll('.option-btn');
+                botones.forEach(b => {
+                    if (b.dataset.correct === "true") {
+                        b.classList.add('correct');
+                    }
+                });
+            }
+        };
         quizOptionsDiv.appendChild(btn);
     });
 }
 
-function verificarRespuesta(btn, opcionElegida, correcta) {
-    if (quizAnswered) return; // Evitar pulsar dos veces
-    quizAnswered = true;
+// LÓGICA MODO MEMORY (¡MEJORADA!)
+function prepararMemory() {
+    memoryBoard.innerHTML = '';
+    memoryMatches = 0;
+    hasFlippedCard = false;
+    lockBoard = false;
+    memoryFeedback.textContent = "Encuentra las parejas";
 
-    if (opcionElegida === correcta) {
-        // ACIERTO
-        btn.classList.add('correct');
-        quizFeedback.textContent = "¡Correcto! 🎉";
-    } else {
-        // FALLO
-        btn.classList.add('wrong');
-        quizFeedback.textContent = "¡Ups! Era: " + correcta.title;
+    barajarArray(flashcardsData);
+    const seleccion = flashcardsData.slice(0, 10);
+
+    let cartasJuego = [];
+    seleccion.forEach((item, index) => {
+        cartasJuego.push({ id: index, type: 'img', content: item.image, data: item });
+        cartasJuego.push({ id: index, type: 'text', content: item.title, data: item });
+    });
+
+    barajarArray(cartasJuego);
+
+    cartasJuego.forEach(carta => {
+        const cardDiv = document.createElement('div');
+        cardDiv.classList.add('mem-card');
+        cardDiv.dataset.id = carta.id;
+
+        let backContent = '';
+        if (carta.type === 'img') {
+            backContent = `<img src="${carta.content}">`;
+        } else {
+            backContent = `<div class="info-text">
+                             <h3>${carta.data.title}</h3>
+                             <p>${carta.data.author}</p>
+                           </div>`;
+        }
+
+        cardDiv.innerHTML = `
+            <div class="mem-inner">
+                <div class="mem-front">?</div>
+                <div class="mem-back">${backContent}</div>
+            </div>
+        `;
+
+        cardDiv.addEventListener('click', voltearCartaMemory);
+        memoryBoard.appendChild(cardDiv);
+    });
+}
+
+function voltearCartaMemory() {
+    if (lockBoard) return;
+    if (this === firstCard) return;
+
+    this.classList.add('flip');
+
+    if (!hasFlippedCard) {
+        hasFlippedCard = true;
+        firstCard = this;
+        return;
+    }
+
+    secondCard = this;
+    lockBoard = true;
+
+    // --- CAMBIO: Esperamos solo 350ms ---
+    // (Un pelín más de lo que tarda la carta en girar, que son 300ms)
+    setTimeout(() => {
+        verificarPareja();
+    }, 350);
+}
+
+function verificarPareja() {
+    let esPareja = firstCard.dataset.id === secondCard.dataset.id;
+    esPareja ? desactivarCartas() : devolverCartas();
+}
+
+function desactivarCartas() {
+    // Se añade clase 'matched' (Verde) y se quitan listeners
+    firstCard.classList.add('matched');
+    secondCard.classList.add('matched');
+    firstCard.removeEventListener('click', voltearCartaMemory);
+    secondCard.removeEventListener('click', voltearCartaMemory);
+
+    resetearTablero();
+    memoryMatches++;
+    
+    const totalParejas = document.querySelectorAll('.mem-card').length / 2;
+    if (memoryMatches === totalParejas) {
+        memoryFeedback.textContent = "¡Felicidades! Has completado el Memory 🎉";
+    }
+}
+
+function devolverCartas() {
+    lockBoard = true;
+    
+    firstCard.classList.add('wrong');
+    secondCard.classList.add('wrong');
+
+    // --- CAMBIO: Solo 800ms de espera ---
+    setTimeout(() => {
+        firstCard.classList.remove('wrong');
+        secondCard.classList.remove('wrong');
         
-        // Buscar el botón correcto para marcarlo en verde (para que aprendas)
-        const botones = quizOptionsDiv.querySelectorAll('.option-btn');
-        botones.forEach(boton => {
-            if (boton.textContent.includes(correcta.title)) {
-                boton.classList.add('correct');
-            }
-        });
-    }
+        firstCard.classList.remove('flip');
+        secondCard.classList.remove('flip');
+        
+        resetearTablero();
+    }, 800); 
 }
 
-// 5. FUNCIONES COMUNES
-function voltearTarjeta() {
-    if(currentMode === 'study') {
-        cardElement.classList.toggle('is-flipped');
-    }
+function resetearTablero() {
+    [hasFlippedCard, lockBoard] = [false, false];
+    [firstCard, secondCard] = [null, null];
 }
 
+function reiniciarMemory() {
+    prepararMemory();
+}
+
+// COMUNES
 function siguienteTarjeta() {
-    // Si estamos en estudio y la carta está girada, la enderezamos antes de cambiar
     if (currentMode === 'study' && cardElement.classList.contains('is-flipped')) {
         cardElement.classList.remove('is-flipped');
         setTimeout(() => avanzarIndice(), 300);
@@ -160,7 +262,8 @@ function avanzarIndice() {
         currentIndex = 0;
         barajarArray(flashcardsData);
     }
-    cargarContenido();
+    if(currentMode === 'study') cargarContenidoEstudio();
+    if(currentMode === 'quiz') cargarContenidoQuiz();
 }
 
 function barajarArray(array) {
@@ -170,5 +273,4 @@ function barajarArray(array) {
     }
 }
 
-// INICIAR
 iniciarApp();
